@@ -1,0 +1,6 @@
+#! /bin/sh
+ICON=#cc6666
+FOREGROUND=#eceff4
+
+date="$(date "+%d-%m-%y")"
+echo -ne " ^c${ICON}^  ^c${FOREGROUND}^${date} "

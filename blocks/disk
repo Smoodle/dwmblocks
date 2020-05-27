@@ -1,0 +1,6 @@
+#! /bin/sh
+ICON=#cc6666
+FOREGROUND=#eceff4
+
+disk=$(df -h $DISK | grep /dev/ | awk '{print $5}')
+echo -ne " ^c${ICON}^  ^c${FOREGROUND}^${disk} "
