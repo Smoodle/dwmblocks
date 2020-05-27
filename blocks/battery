@@ -15,5 +15,7 @@ then
 	elif [ $BATTERY_STATUS = "Discharging" ]
 	then
 		echo -ne " ^c${ICON}^ ^c${FOREGROUND}^${BATTERY_PERCENTAGE}% "
+	else
+		echo -ne " ^c${ICON}^ ^c${FOREGROUND}^${BATTERY_PERCENTAGE}% "
 	fi
 fi
