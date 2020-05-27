@@ -1,0 +1,19 @@
+#! /bin/sh
+ICON=#cc6666
+FOREGROUND=#eceff4
+
+BATTERY=BAT0
+
+if [ -d "/sys/class/power_supply/${BAT0}" ]
+then
+	BATTERY_STATUS=$(cat /sys/class/power_supply/${BATTERY}/status)
+	BATTERY_PERCENTAGE=$(cat /sys/class/power_supply/${BATTERY}/capacity)
+
+	if [ $BATTERY_STATUS = "Charging" ]
+	then
+		echo -ne " ^c${ICON}^  ^c${FOREGROUND}^${BATTERY_PERCENTAGE}% "
+	elif [ $BATTERY_STATUS = "Discharging" ]
+	then
+		echo -ne " ^c${ICON}^  ^c${FOREGROUND}^${BATTERY_PERCENTAGE}% "
+	fi
+fi
