@@ -14,7 +14,15 @@ then
 		echo -ne " ^c${ICON}^ ^c${FOREGROUND}^${BATTERY_PERCENTAGE}% "
 	elif [ $BATTERY_STATUS = "Discharging" ]
 	then
-		echo -ne " ^c${ICON}^ ^c${FOREGROUND}^${BATTERY_PERCENTAGE}% "
+		if [ $BATTERY_STATUS -le 25 ]; then
+			echo -ne " ^c${ICON}^ ^c${FOREGROUND}^${BATTERY_PERCENTAGE}% "
+		elif [ $BATTERY_STATUS -le 50 ]; then
+			echo -ne " ^c${ICON}^ ^c${FOREGROUND}^${BATTERY_PERCENTAGE}% "
+		elif [ $BATTERY_STATUS -le 75 ]; then
+			echo -ne " ^c${ICON}^ ^c${FOREGROUND}^${BATTERY_PERCENTAGE}% "
+		else
+			echo -ne " ^c${ICON}^ ^c${FOREGROUND}^${BATTERY_PERCENTAGE}% "
+		fi
 	else
 		echo -ne " ^c${ICON}^ ^c${FOREGROUND}^${BATTERY_PERCENTAGE}% "
 	fi
