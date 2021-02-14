@@ -1,6 +1,0 @@
-#! /bin/sh
-ICON=#cc6666
-FOREGROUND=#eceff4
-
-time="$(date "+%H:%M")"
-echo -ne " ^c${ICON}^  ^c${FOREGROUND}^${time} "

@@ -57,7 +57,7 @@ void getcmd(const Block *block, char *output)
 	int i = strlen(block->icon);
 	fgets(output+i, CMDLENGTH-i, cmdf);
 	i = strlen(output);
-	if (delim != '\0' && --i)
+	if (delim != '\0' && strcmp(output, "") != 0 && --i)
 		output[i++] = delim;
 	output[i++] = '\0';
 	pclose(cmdf);
@@ -101,8 +101,9 @@ int getstatus(char *str, char *last)
 {
 	strcpy(last, str);
 	str[0] = '\0';
-	for(int i = 0; i < LENGTH(blocks); i++)
+	for(int i = 0; i < LENGTH(blocks); i++) 
 		strcat(str, statusbar[i]);
+
 	str[strlen(str)-1] = '\0';
 	return strcmp(str, last);//0 if they are the same
 }
